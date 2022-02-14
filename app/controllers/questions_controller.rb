@@ -3,12 +3,13 @@ class QuestionsController < ApplicationController
   end
 
   def answer
-    if params = "I am going to work"
-      return "Great!"
-    elsif answer.ends_with_?
-      return "Silly question, get dressed and go to work!"
+    question = params["question"]
+    if question == "I am going to work"
+      @answer = "Great!"
+    elsif question.end_with?("?")
+      @answer = "Silly question, get dressed and go to work!"
     else
-      return "I don't care, get dressed and go to work!"
+      @answer = "I don't care, get dressed and go to work!"
     end
   end
 end
